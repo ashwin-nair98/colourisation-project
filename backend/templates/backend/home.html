@@ -17,7 +17,7 @@
             <p class="description">Upload an image to colourise it and detect faces and images.</p>
             <div class="card-deck mb-3 text-center">
                 <div class="card mb-4 shadow-sm image-box">
-                    <img src="https://picsum.photos/200/300" class="card-img-top display-img" id="original" alt="...">
+                    <img src="{% static 'images/loader.gif' %}" class="card-img-top display-img" id="original" alt="...">
                     <div class="card-body">
                     <h5 class="card-title">Original Image</h5>
                     <input type="file" id="fileUpload" onchange="encodeImageFileAsURL(this)" style="display: none;">  
