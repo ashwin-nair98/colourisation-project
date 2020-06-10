@@ -1,16 +1,53 @@
 <html>
     <head>
+        {% load static %}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+        
     </head>
     <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <span class="header">
+                <h3>Colourisation and Age Detection</h3>
+            </span>
+        </nav>
         <div class="container">
-            <h3>Colourisation and Age Detection</h3>
-            <p>It works!</p>
+            <p class="description">Upload an image to colourise it and detect faces and images.</p>
+            <div class="card-deck mb-3 text-center">
+                <div class="card mb-4 shadow-sm image-box">
+                    <img src="https://picsum.photos/200/300" class="card-img-top display-img" id="original" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title">Original Image</h5>
+                    <input type="file" id="fileUpload" onchange="encodeImageFileAsURL(this)" style="display: none;">  
+                    <button type="button" id="btnFileUpload" class="btn btn-lg btn-block btn-outline-primary">Upload</button>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm image-box">
+                    <img src="{% static 'images/loader.gif' %}" class="card-img-top display-img" id="colourise" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title">Colourised</h5>
+                    <button type="button" class="btn btn-lg btn-block btn-primary" onclick="downloadColourised()">Download Colourised</button>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm image-box">
+                    <img src="{% static 'images/loader.gif' %}" class="card-img-top display-img" id="age-detect" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title">Age detection</h5>
+                    <button type="button" class="btn btn-lg btn-block btn-primary" onclick="downloadAgeDetected()">Download Age detected</button>
+                    </div>
+                </div>
+              </div>
         </div>
         
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <script src="{% static 'js/temp.js' %}"></script>
+        <script src="{% static 'js/script.js' %}"></script>
     </body>
 </html>

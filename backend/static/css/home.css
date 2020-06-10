@@ -1,0 +1,41 @@
+.header {
+    width: 100%;
+    text-align: center;
+}
+.header h3{
+    padding-top: 2vh;
+    color: white!important;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.navbar {
+    margin-bottom: 2vh;
+}
+
+.description {
+    font-size: large;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+.images-container {
+    display: flex;
+    justify-content: space-between;
+    max-height: 10px;
+}
+
+.card-title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+.image-box {
+    margin-left: 10vw;
+    margin-right: 10vw;
+    width: 20vw; 
+}
+
+.display-img {
+    max-height: 23vw!important;
+}
