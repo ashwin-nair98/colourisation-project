@@ -7,11 +7,15 @@ function encodeImageFileAsURL(element) {
         $("#original").attr('src', imagebase64);
         $("#age-detect").attr('src', loader);
         $("#colourise").attr('src', loader);
-        $.post("http://localhost:8000/age/", JSON.stringify({"img": imagebase64}), function(response){
-            var ageB64 = "data:image/jpeg;base64," + response.img;
-            $("#age-detect").attr('src', ageB64);
-            $("#colourise").attr('src', imagebase64);
+        $.post("http://localhost:8000/color/", JSON.stringify({"img": imagebase64}), function(response){
+            var colorB64 = "data:image/jpeg;base64," + response.img;
+            $("#colourise").attr('src', colorB64);
+            $.post("http://localhost:8000/age/", JSON.stringify({"img": colorB64}), function(response){
+                var ageB64 = "data:image/jpeg;base64," + response.img;
+                $("#age-detect").attr('src', ageB64);
+            })
         })
+        
     }  
     reader.readAsDataURL(file);
 }
@@ -59,11 +63,14 @@ $(document).ready(function(){
     button.click(function () {
         fileupload.click();
     });
-    
-    $.post("http://localhost:8000/age/", JSON.stringify({"img": base64}), function(response){
-        var ageB64 = "data:image/jpeg;base64," + response.img;
-        $("#age-detect").attr('src', ageB64);
-        $("#colourise").attr('src', base64);
+
+    $.post("http://localhost:8000/color/", JSON.stringify({"img": base64}), function(response){
+        var colorB64 = "data:image/jpeg;base64," + response.img;
+        $("#colourise").attr('src', colorB64);
+        $.post("http://localhost:8000/age/", JSON.stringify({"img": colorB64}), function(response){
+            var ageB64 = "data:image/jpeg;base64," + response.img;
+            $("#age-detect").attr('src', ageB64);
+        })
     })
     
 });
