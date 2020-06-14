@@ -128,3 +128,15 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# Models 
+
+backend/pretrained_models
+train/events.*
+train/model*
+
+# Temp folders and other files
+
+.DS_Store
+color/
