@@ -5,7 +5,7 @@ cachetools==4.1.0
 certifi==2020.4.5.2
 chardet==3.0.4
 cmake==3.17.3
-Django==2.2.13
+Django==2.2.22
 djangorestframework==3.11.0
 dlib==19.20.0
 gast==0.2.2
